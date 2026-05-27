@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>London Trip — June 2-6 🇬🇧</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --cream:#faf6f0;
+  --warm:#f0e6d8;
+  --deep:#1a1a2e;
+  --gold:#c9a96e;
+  --rose:#d4a5a5;
+  --lavender:#b8b8d0;
+  --navy:#16213e;
+  --coral:#e07a5f;
+  --mint:#81b29a;
+  --text:#2d2d3f;
+  --text-light:#6b6b7d;
+  --card-bg:#ffffff;
+  --shadow:0 8px 32px rgba(0,0,0,0.08);
+  --shadow-hover:0 12px 48px rgba(0,0,0,0.14);
+  --radius:24px;
+  --radius-sm:12px;
+}
+body{
+  font-family:'Inter',-apple-system,sans-serif;
+  background:var(--cream);
+  color:var(--text);
+  min-height:100vh;
+  padding-bottom:100px;
+}
+h1,h2,h3{font-family:'Playfair Display',serif;font-weight:600}
+/* Hero */
+.hero{
+  background:linear-gradient(135deg,var(--deep) 0%,var(--navy) 50%,#1a1a3e 100%);
+  color:#fff;
+  padding:60px 24px 40px;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+.hero::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:radial-gradient(circle at 30% 50%, rgba(201,169,110,0.1) 0%, transparent 60%),
+             radial-gradient(circle at 70% 80%, rgba(212,165,165,0.08) 0%, transparent 50%);
+}
+.hero h1{font-size:2.4rem;letter-spacing:-0.5px;position:relative}
+.hero .subtitle{font-size:0.95rem;color:var(--gold);margin-top:6px;font-weight:400;letter-spacing:1px;text-transform:uppercase;position:relative}
+.hero .dates{display:inline-block;margin-top:16px;padding:8px 20px;background:rgba(255,255,255,0.08);border-radius:100px;font-size:0.85rem;color:var(--lavender);backdrop-filter:blur(8px);position:relative}
+.hero .flag{font-size:2.5rem;margin-top:20px;display:block;position:relative}
+/* Day Navigation */
+.day-nav{
+  display:flex;
+  gap:8px;
+  padding:20px 16px 8px;
+  overflow-x:auto;
+  scrollbar-width:none;
+  -webkit-overflow-scrolling:touch;
+  position:sticky;
+  top:0;
+  z-index:10;
+  background:var(--cream);
+}
+.day-nav::-webkit-scrollbar{display:none}
+.day-btn{
+  flex-shrink:0;
+  padding:10px 20px;
+  border-radius:100px;
+  border:1.5px solid var(--gold);
+  background:transparent;
+  color:var(--gold);
+  font-family:'Inter',sans-serif;
+  font-size:0.85rem;
+  font-weight:500;
+  cursor:pointer;
+  transition:all 0.2s;
+  white-space:nowrap;
+}
+.day-btn.active{
+  background:var(--gold);
+  color:#fff;
+  box-shadow:0 4px 16px rgba(201,169,110,0.3);
+}
+.day-btn:not(.active):hover{
+  background:rgba(201,169,110,0.1);
+}
+/* Day Content */
+.day{display:none;padding:12px 16px 40px;animation:fadeIn 0.4s ease}
+.day.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.day-header{
+  font-size:1.4rem;
+  margin-bottom:2px;
+  color:var(--deep);
+}
+.day-date{
+  font-size:0.85rem;
+  color:var(--text-light);
+  margin-bottom:20px;
+  font-weight:400;
+}
+/* Activity Cards */
+.activity{
+  background:var(--card-bg);
+  border-radius:var(--radius);
+  padding:20px;
+  margin-bottom:14px;
+  box-shadow:var(--shadow);
+  transition:all 0.25s;
+  border-left:4px solid transparent;
+  position:relative;
+}
+.activity:hover{
+  box-shadow:var(--shadow-hover);
+  transform:translateY(-2px);
+}
+.activity.transport{border-left-color:var(--mint)}
+.activity.attraction{border-left-color:var(--gold)}
+.activity.food{border-left-color:var(--rose)}
+.activity.night{border-left-color:var(--lavender)}
+.activity.highlight{border-left-color:var(--coral);background:linear-gradient(135deg,#fff,#fef6f3)}
+.activity .time{
+  font-size:0.8rem;
+  font-weight:600;
+  color:var(--gold);
+  text-transform:uppercase;
+  letter-spacing:0.5px;
+  display:block;
+  margin-bottom:4px;
+}
+.activity h3{font-size:1.1rem;margin-bottom:4px}
+.activity p{font-size:0.9rem;color:var(--text-light);line-height:1.5}
+.activity .icon{font-size:1.3rem;margin-right:8px;display:inline-block;vertical-align:middle}
+.activity .badge{
+  display:inline-block;
+  font-size:0.65rem;
+  padding:3px 10px;
+  border-radius:100px;
+  background:rgba(201,169,110,0.12);
+  color:var(--gold);
+  font-weight:500;
+  text-transform:uppercase;
+  letter-spacing:0.3px;
+  margin-top:8px;
+}
+/* Section dividers */
+.section-label{
+  font-size:0.75rem;
+  text-transform:uppercase;
+  letter-spacing:1.5px;
+  color:var(--text-light);
+  font-weight:600;
+  margin:24px 0 12px 4px;
+}
+.section-label .line{
+  display:inline-block;
+  width:24px;
+  height:2px;
+  background:var(--gold);
+  vertical-align:middle;
+  margin-right:10px;
+}
+/* Notes / Info Box */
+.info-box{
+  background:rgba(201,169,110,0.08);
+  border-radius:var(--radius-sm);
+  padding:16px 18px;
+  margin:18px 0;
+  font-size:0.85rem;
+  color:var(--text-light);
+  line-height:1.6;
+  border:1px solid rgba(201,169,110,0.15);
+}
+.info-box strong{color:var(--text);display:block;margin-bottom:4px}
+.info-box .emoji{font-size:1.1rem;margin-right:6px}
+/* Hidden Gems */
+.gems-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+  margin:12px 0 20px;
+}
+.gem{
+  background:var(--card-bg);
+  border-radius:var(--radius-sm);
+  padding:14px;
+  text-align:center;
+  box-shadow:var(--shadow);
+  font-size:0.85rem;
+  transition:all 0.2s;
+}
+.gem .gem-icon{font-size:1.4rem;display:block;margin-bottom:4px}
+.gem:hover{transform:translateY(-2px);box-shadow:var(--shadow-hover)}
+/* Stats Bar */
+.stats-bar{
+  display:flex;
+  justify-content:space-around;
+  padding:20px 16px;
+  background:var(--card-bg);
+  margin:0 16px 20px;
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  text-align:center;
+}
+.stat{flex:1}
+.stat .num{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:600;color:var(--gold)}
+.stat .label{font-size:0.7rem;color:var(--text-light);text-transform:uppercase;letter-spacing:0.5px;margin-top:2px}
+/* GF Banner */
+.gf-banner{
+  background:linear-gradient(135deg,var(--rose),var(--lavender));
+  color:#fff;
+  text-align:center;
+  padding:24px 20px;
+  margin:20px 16px;
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+}
+.gf-banner .big-emoji{font-size:2.5rem;display:block;margin-bottom:6px}
+.gf-banner h2{font-size:1.2rem;margin-bottom:4px}
+.gf-banner p{font-size:0.85rem;opacity:0.9}
+/* Map placeholder */
+.map-section{
+  background:var(--card-bg);
+  border-radius:var(--radius);
+  margin:0 16px 20px;
+  padding:20px;
+  box-shadow:var(--shadow);
+}
+.map-section h3{font-size:1rem;margin-bottom:12px}
+.map-links{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:8px;
+}
+.map-link{
+  display:block;
+  padding:10px 14px;
+  border-radius:var(--radius-sm);
+  background:var(--cream);
+  color:var(--text);
+  text-decoration:none;
+  font-size:0.82rem;
+  transition:all 0.2s;
+  border:1px solid var(--warm);
+}
+.map-link:hover{background:var(--gold);color:#fff;border-color:var(--gold)}
+/* Footer */
+.footer{
+  text-align:center;
+  padding:32px 20px;
+  color:var(--text-light);
+  font-size:0.8rem;
+  font-style:italic;
+}
+.footer .heart{color:var(--rose);font-style:normal}
+@media(max-width:480px){
+  .hero h1{font-size:1.8rem}
+  .gems-grid{grid-template-columns:1fr 1fr;gap:8px}
+  .map-links{grid-template-columns:1fr}
+  .stats-bar{gap:4px}
+  .stat .num{font-size:1.3rem}
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <h1>London Calling</h1>
+  <p class="subtitle">June 2 — 6 · A Cinematic Escape</p>
+  <div class="dates">🇬🇧  London · Wood Green  🇬🇧</div>
+  <span class="flag">✨</span>
+</div>
+
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="stat"><div class="num">5</div><div class="label">Days</div></div>
+  <div class="stat"><div class="num">25+</div><div class="label">Activities</div></div>
+  <div class="stat"><div class="num">🎂</div><div class="label">Birthday</div></div>
+  <div class="stat"><div class="num">☕</div><div class="label">Hidden Gems</div></div>
+</div>
+
+<!-- GF BANNER -->
+<div class="gf-banner">
+  <span class="big-emoji">💑</span>
+  <h2>For you two</h2>
+  <p>A romantic, cinematic London adventure awaits. Every corner has a story, every evening a memory 🌆</p>
+</div>
+
+<!-- DAY NAV -->
+<div class="day-nav" id="dayNav"></div>
+
+<!-- DAYS CONTENT -->
+<div id="daysContainer"></div>
+
+<!-- HIDDEN GEMS SECTION -->
+<div class="day" id="hiddenGemsDay">
+  <h2 class="day-header">💎 Hidden London</h2>
+  <p class="day-date">Atmospheric spots to discover</p>
+  <div class="gems-grid" id="gemsGrid"></div>
+  <div class="info-box">
+    <strong>🌸 Luigi's Tip</strong>
+    Perfect for spontaneous detours between planned stops. Let the city surprise you two!
+  </div>
+</div>
+
+<!-- MAP SECTION -->
+<div class="map-section" id="mapSection">
+  <h3>📍 Quick Google Maps</h3>
+  <div class="map-links" id="mapLinks"></div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  Made with <span class="heart">♥</span> by Hermes · For Luigi & his love ✨
+</div>
+
+<script>
+// ===== DATA =====
+const DAYS = [
+  {
+    id: 1, label: 'Day 1', date: 'Tue 2 June', emoji: '🛫',
+    sections: [
+      { label: 'Travel Day', items: [
+        { time: '07:00', title: 'Start of the day', icon: '☀️', type: 'transport', desc: 'Get ready and pack the last things!' },
+        { time: '11:10', title: '✈️ Departure — Venice M.Polo', icon: '🛫', type: 'transport', desc: 'Flight to London Stansted' },
+        { time: '12:30', title: '🛬 Arrival — Stansted Airport', icon: '🇬🇧', type: 'transport', desc: 'Welcome to London!' },
+        { time: '14:10', title: '🚌 Bus to London', icon: '🚌', type: 'transport', desc: 'Headed to the city — settle in at Wood Green' },
+      ]},
+      { label: 'Evening · Central Vibes', items: [
+        { time: '17:30', title: 'Harrods', icon: '🏬', type: 'attraction', desc: 'Explore the iconic department store — even just window shopping is an experience!', badge: 'Iconic' },
+        { time: '20:00', title: 'Piccadilly Circus', icon: '✨', type: 'night', desc: 'Neon lights, energy, and the heart of London\'s West End', badge: 'Best at night' },
+        { time: '20:30', title: 'Covent Garden', icon: '🎭', type: 'night', desc: 'Street performers, charming piazzas, and evening buzz' },
+        { time: '20:45', title: 'Bunga \'90 — Hidden Bar 🎮', icon: '🕹️', type: 'night', desc: 'Secret retro 90s bar with VHS-style entrance, neon lights, nostalgic chaos!', badge: 'Hidden gem' },
+      ]},
+    ],
+    notes: 'Relaxed first evening. Focus on lights, streets, vibes, and nightlife. Get the feel of London at night!'
+  },
+  {
+    id: 2, label: 'Day 2', date: 'Wed 3 June', emoji: '👑',
+    sections: [
+      { label: 'Morning · Royal London', items: [
+        { time: '08:00', title: '☀️ Start of the day', icon: '☀️', type: 'transport' },
+        { time: '09:30', title: '🚇 Metro to Green Park', icon: '🚇', type: 'transport' },
+        { time: '10:15 – 11:45', title: 'Buckingham Palace', icon: '👑', type: 'attraction', desc: 'Changing of the Guard ceremony — a true London classic!', badge: 'Must see' },
+        { time: '11:45 – 12:30', title: "St James's Park & Big Ben", icon: '🌳', type: 'attraction', desc: 'Stroll through the royal park with views of Buckingham Palace, then see Big Ben up close' },
+      ]},
+      { label: 'Afternoon · Icons & River', items: [
+        { time: '12:30 – 13:00', title: '🍽️ Lunch Time', icon: '🍝', type: 'food' },
+        { time: '13:00 – 13:30', title: 'Westminster Abbey', icon: '⛪', type: 'attraction', desc: 'One of London\'s most iconic Gothic churches — coronations, weddings, history', badge: 'Iconic' },
+        { time: '16:10 – 18:00', title: 'Tower Bridge', icon: '🌉', type: 'attraction', desc: 'Walk across and take in the Thames views — one of the most photographed bridges in the world' },
+        { time: '18:20', title: '🚤 Uber Boat to Embankment Pier', icon: '🚤', type: 'transport', desc: 'Sit outside at the back for amazing skyline views along the Thames!' },
+      ]},
+      { label: 'Evening · Pub & Square', items: [
+        { time: '18:45', title: '🍺 Sherlock Holmes Pub', icon: '🔍', type: 'food', desc: 'Classic London pub experience — what better name for a detective-themed evening?' },
+        { time: '19:00', title: 'Dinner Time', icon: '🍽️', type: 'food' },
+        { time: '20:00', title: 'Trafalgar Square', icon: '🦁', type: 'night', desc: 'Lions, fountains, Nelson\'s Column — London\'s grand public square at night' },
+      ]},
+    ],
+    notes: 'Hidden gems nearby: Leadenhall Market (beautiful covered market), St Katharine Docks (marina oasis), Gordon\'s Wine Bar (oldest wine bar in London)'
+  },
+  {
+    id: 3, label: 'Day 3', date: 'Thu 4 June', emoji: '⚡',
+    sections: [
+      { label: 'Early Start · Magic Day', items: [
+        { time: '06:00', title: '🌅 Start of the day', icon: '🌅', type: 'transport', desc: 'Early start — big day ahead!' },
+        { time: '08:30 – 16:30', title: '⚡ Harry Potter Studios', icon: '⚡', type: 'attraction', desc: 'The full Warner Bros. Studio Tour — walk through the Great Hall, Diagon Alley, and see the real props!', badge: 'Magical ✨' },
+      ]},
+      { label: 'Evening · Thames Glow', items: [
+        { time: '19:00', title: '🎡 London Eye', icon: '🎡', type: 'attraction', desc: 'The London skyline from above — especially magical at sunset/evening', badge: 'Romantic 💕' },
+        { time: '20:00', title: '🍝 Dinner in South Bank', icon: '🍷', type: 'food', desc: 'Riverside dining along the Thames — South Bank has the best atmosphere' },
+      ]},
+    ],
+    notes: 'Best atmosphere: South Bank riverside walk, London Eye at sunset/night. Perfect for a romantic evening stroll along the Thames. Consider a Santander bike ride!'
+  },
+  {
+    id: 4, label: 'Day 4', date: 'Fri 5 June', emoji: '🎂',
+    sections: [
+      { label: 'Morning · History & Science', items: [
+        { time: '07:00', title: '☀️ Start of the day', icon: '☀️', type: 'transport' },
+        { time: '09:00 – 09:30', title: '🏰 Tower of London', icon: '🏰', type: 'attraction', desc: 'See the Crown Jewels, the ravens, and nearly 1000 years of history', badge: 'Iconic' },
+        { time: '14:30 – 17:50', title: '🦕 Natural History Museum', icon: '🦕', type: 'attraction', desc: 'Stunning architecture, dinosaur skeletons, and incredible exhibits — one of London\'s best museums' },
+        { time: '19:00', title: '🚿 Shower & clothes change', icon: '🚿', type: 'transport', desc: 'Get ready for the birthday evening!' },
+      ]},
+      { label: '🎉 Birthday Evening', items: [
+        { time: '21:00', title: 'Leadenhall Market', icon: '🏛️', type: 'night', desc: 'Beautiful Victorian covered market — magical atmosphere at night', badge: 'Hidden gem' },
+        { time: '21:30 – 23:00', title: '🎂 Sky Garden — Birthday!', icon: '🎂', type: 'highlight', desc: 'Panoramic skyline views, music, cocktails, and sunset over London. The perfect birthday celebration!', badge: '⭐ THE MOMENT' },
+      ]},
+    ],
+    notes: 'Desired mood: Romantic but lively — music, cocktails, skyline, sunset + city lights. Suggested route: Leadenhall Market → Sky Garden → Tower Bridge riverside walk. Near Sky Garden: St Dunstan in the East (ruined church garden), Horizon 22 (free viewing platform)',
+    extraHighlight: true
+  },
+  {
+    id: 5, label: 'Day 5', date: 'Sat 6 June', emoji: '🪄',
+    sections: [
+      { label: 'Final Morning', items: [
+        { time: '07:00', title: '☀️ Start of the day', icon: '☀️', type: 'transport' },
+        { time: '10:00', title: "🪄 King's Cross — Harry Potter Store", icon: '🪄', type: 'attraction', desc: 'Visit Platform 9¾ and the massive Harry Potter shop!', badge: 'Magical' },
+      ]},
+      { label: 'Return Travel', items: [
+        { time: '15:25', title: '🚌 Bus to Stansted Airport', icon: '🚌', type: 'transport' },
+        { time: '19:15', title: '✈️ Departure — Stansted Airport', icon: '🛬', type: 'transport', desc: 'Arrivederci Londra! 🇮🇹' },
+      ]},
+    ]
+  }
+];
+
+const HIDDEN_GEMS = [
+  { name: 'Leadenhall Market', icon: '🏛️', desc: 'Victorian covered market' },
+  { name: 'Cecil Court', icon: '📚', desc: 'Charming bookshops lane' },
+  { name: "St Dunstan's", icon: '🌿', desc: 'Ruined church garden' },
+  { name: "Gordon's Wine Bar", icon: '🍷', desc: 'Oldest wine bar' },
+  { name: 'Primrose Hill', icon: '🌄', desc: 'Best skyline view' },
+  { name: 'Little Venice', icon: '⛵', desc: 'Canals & houseboats' },
+  { name: 'Richmond Park', icon: '🦌', desc: 'Wild deer in London' },
+  { name: 'Kyoto Garden', icon: '🌸', desc: 'Japanese serenity' },
+  { name: "Dennis Severs' House", icon: '🕯️', desc: 'Time-capsule home' },
+  { name: "Wilton's Music Hall", icon: '🎭', desc: 'Oldest music hall' },
+  { name: "God's Own Junkyard", icon: '💡', desc: 'Neon sign gallery' },
+  { name: 'Horizon 22', icon: '🏙️', desc: 'Free viewing platform' },
+];
+
+const MAP_PLACES = [
+  { name: 'Buckingham Palace', url: 'https://maps.google.com/?q=Buckingham+Palace+London' },
+  { name: 'Westminster Abbey', url: 'https://maps.google.com/?q=Westminster+Abbey+London' },
+  { name: 'Big Ben', url: 'https://maps.google.com/?q=Big+Ben+London' },
+  { name: 'Tower Bridge', url: 'https://maps.google.com/?q=Tower+Bridge+London' },
+  { name: 'London Eye', url: 'https://maps.google.com/?q=London+Eye+London' },
+  { name: 'Tower of London', url: 'https://maps.google.com/?q=Tower+of+London' },
+  { name: 'Sky Garden', url: 'https://maps.google.com/?q=Sky+Garden+London' },
+  { name: 'Covent Garden', url: 'https://maps.google.com/?q=Covent+Garden+London' },
+  { name: 'Harrods', url: 'https://maps.google.com/?q=Harrods+London' },
+  { name: "King's Cross", url: 'https://maps.google.com/?q=Kings+Cross+Station+London' },
+  { name: 'Harry Potter Studio', url: 'https://maps.google.com/?q=Warner+Bros+Studio+London' },
+  { name: 'Leadenhall Market', url: 'https://maps.google.com/?q=Leadenhall+Market+London' },
+  { name: 'Natural History Museum', url: 'https://maps.google.com/?q=Natural+History+Museum+London' },
+  { name: 'Piccadilly Circus', url: 'https://maps.google.com/?q=Piccadilly+Circus+London' },
+];
+
+// ===== RENDER =====
+const dayNav = document.getElementById('dayNav');
+const daysContainer = document.getElementById('daysContainer');
+const gemsGrid = document.getElementById('gemsGrid');
+const mapLinks = document.getElementById('mapLinks');
+
+// Day nav buttons
+DAYS.forEach((day, i) => {
+  const btn = document.createElement('button');
+  btn.className = 'day-btn' + (i === 0 ? ' active' : '');
+  btn.textContent = day.emoji + ' ' + day.label;
+  btn.onclick = () => switchDay(i);
+  dayNav.appendChild(btn);
+});
+
+// Hidden gems tab button
+const gemsBtn = document.createElement('button');
+gemsBtn.className = 'day-btn';
+gemsBtn.textContent = '💎 Hidden';
+gemsBtn.onclick = () => switchDay(-1);
+dayNav.appendChild(gemsBtn);
+
+// Day content
+DAYS.forEach((day, di) => {
+  const div = document.createElement('div');
+  div.className = 'day' + (di === 0 ? ' active' : '');
+  div.dataset.index = di;
+
+  let html = `<h2 class="day-header">${day.emoji} ${day.label}</h2>`;
+  html += `<p class="day-date">${day.date}</p>`;
+
+  day.sections.forEach(section => {
+    html += `<div class="section-label"><span class="line"></span>${section.label}</div>`;
+    section.items.forEach(item => {
+      html += `<div class="activity ${item.type}">`;
+      if (item.time) html += `<span class="time">${item.time}</span>`;
+      html += `<h3>${item.icon ? `<span class="icon">${item.icon}</span>` : ''}${item.title}</h3>`;
+      if (item.desc) html += `<p>${item.desc}</p>`;
+      if (item.badge) html += `<span class="badge">${item.badge}</span>`;
+      html += `</div>`;
+    });
+  });
+
+  if (day.notes) {
+    html += `<div class="info-box"><strong>💡 Notes</strong>${day.notes}</div>`;
+  }
+
+  div.innerHTML = html;
+  daysContainer.appendChild(div);
+});
+
+// Hidden gems content
+GEMS.forEach(gem => {
+  const div = document.createElement('div');
+  div.className = 'gem';
+  div.innerHTML = `<span class="gem-icon">${gem.icon}</span>${gem.name}`;
+  div.title = gem.desc;
+  gemsGrid.appendChild(div);
+});
+
+// Map links
+MAP_PLACES.forEach(place => {
+  const a = document.createElement('a');
+  a.className = 'map-link';
+  a.href = place.url;
+  a.target = '_blank';
+  a.textContent = '📍 ' + place.name;
+  mapLinks.appendChild(a);
+});
+
+// ===== SWITCH DAY =====
+function switchDay(index) {
+  const buttons = document.querySelectorAll('.day-btn');
+  const days = document.querySelectorAll('.day');
+  buttons.forEach(b => b.classList.remove('active'));
+  days.forEach(d => d.classList.remove('active'));
+
+  if (index === -1) {
+    buttons[buttons.length - 1].classList.add('active');
+    document.getElementById('hiddenGemsDay').classList.add('active');
+  } else {
+    buttons[index].classList.add('active');
+    days[index].classList.add('active');
+  }
+
+  // Scroll to top
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// Auto-select current day based on real time
+function autoSelectDay() {
+  const now = new Date();
+  const june2 = new Date(2026, 5, 2);
+  const june6 = new Date(2026, 5, 6);
+  const dayIndex = Math.floor((now - june2) / (1000 * 60 * 60 * 24));
+
+  if (now >= june2 && now <= june6 && dayIndex >= 0 && dayIndex < 5) {
+    // Only auto-switch if not already on that day
+    const activeDay = document.querySelector('.day.active');
+    if (activeDay && activeDay.dataset.index != dayIndex) {
+      setTimeout(() => switchDay(dayIndex), 500);
+    }
+  }
+}
+autoSelectDay();
+</script>
+</body>
+</html>
