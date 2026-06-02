@@ -179,6 +179,22 @@ h1,h2,h3{font-family:'Playfair Display',serif;font-weight:600}
 }
 .info-box strong{color:var(--text);display:block;margin-bottom:4px}
 .info-box .emoji{font-size:1.1rem;margin-right:6px}
+/* Food Guide Cards */
+.food-guide{background:var(--card-bg);border-radius:var(--radius);padding:20px;margin-bottom:14px;box-shadow:var(--shadow);transition:all 0.25s;border-left:4px solid var(--gold);position:relative}
+.food-guide:hover{box-shadow:var(--shadow-hover);transform:translateY(-2px)}
+.food-guide .food-icon{font-size:1.5rem;margin-right:8px;display:inline-block;vertical-align:middle}
+.food-guide h3{font-size:1.05rem;margin-bottom:2px}
+.food-guide .food-type{font-size:0.75rem;color:var(--text-light);margin-bottom:4px}
+.food-guide .food-price{font-size:0.8rem;color:var(--gold);font-weight:600;margin-bottom:6px}
+.food-guide .food-rating{font-size:0.75rem;color:var(--rose);margin-bottom:2px}
+.food-guide .food-desc{font-size:0.82rem;color:var(--text-light);line-height:1.5;margin-bottom:6px}
+.food-guide .food-address{font-size:0.75rem;color:var(--lavender)}
+.food-guide .food-tag{display:inline-block;font-size:0.6rem;padding:2px 8px;border-radius:100px;background:rgba(201,169,110,0.12);color:var(--gold);font-weight:500;text-transform:uppercase;letter-spacing:0.3px;margin-right:4px;margin-top:6px}
+.food-winner{background:linear-gradient(135deg,#fff,#fff8f0);border-left-color:var(--coral)}
+.food-winner .trophy{font-size:1rem;margin-left:4px}
+.food-menu-item{font-size:0.78rem;color:var(--text);padding:3px 0;border-bottom:1px dashed rgba(0,0,0,0.04)}
+.food-menu-item .price{color:var(--gold);font-weight:600;float:right}
+.food-menu-section{font-weight:600;font-size:0.78rem;text-transform:uppercase;letter-spacing:0.5px;color:var(--text-light);margin-top:10px;margin-bottom:4px}
 /* Hidden Gems */
 .gems-grid{
   display:grid;
@@ -298,6 +314,204 @@ h1,h2,h3{font-family:'Playfair Display',serif;font-weight:600}
 
 <!-- DAYS CONTENT -->
 <div id="daysContainer"></div>
+
+<!-- FISH & CHIPS SECTION -->
+<div class="day" id="fishChipsDay">
+  <h2 class="day-header">🐟 Fish & Chips Guide</h2>
+  <p class="day-date">Best chippies in London — rated & priced ✅</p>
+
+  <div class="food-guide food-winner">
+    <span class="food-icon">🐟</span><span class="trophy">🏆</span>
+    <h3>The Golden Hind <span class="food-tag">BEST OVERALL</span></h3>
+    <div class="food-type">Traditional Fish & Chips · Sit-down or Takeaway</div>
+    <div class="food-rating">⭐ 7.8/10 (Infatuation) · 4.1★ (Yelp, 286 reviews)</div>
+    <div class="food-price">💰 Cod/Haddock: £15.95-17.95 · Lunch Deal: £21.95/pp</div>
+    <div class="food-desc">Opened 1914 in the heart of Marylebone. BYOB-friendly, proper sit-down experience. The lunch deal (£21.95/pp) includes regular cod/haddock, chips, peas & tartar sauce — great value!</div>
+    <div class="food-address">📍 71a-73 Marylebone Lane, W1U 2PN · ☎ 0207 486 3644</div>
+    <div class="food-tag">BYOB</div><div class="food-tag">1914</div><div class="food-tag">Book Ahead</div>
+    <div style="margin-top:10px;padding-top:8px;border-top:1px solid rgba(0,0,0,0.06)">
+      <div class="food-menu-section">🥟 Starters</div>
+      <div class="food-menu-item">Prawn Cocktail <span class="price">£7.95</span></div>
+      <div class="food-menu-item">Cod Fishcakes (homemade) <span class="price">£7.95</span></div>
+      <div class="food-menu-item">Burrata <span class="price">£12.95</span></div>
+      <div class="food-menu-item">Scampi (breaded) <span class="price">£8.50</span></div>
+      <div class="food-menu-section">🐟 Fried Fish (Groundnut Oil)</div>
+      <div class="food-menu-item">Cod or Haddock — Regular <span class="price">£15.95</span></div>
+      <div class="food-menu-item">Cod or Haddock — Large <span class="price">£17.95</span></div>
+      <div class="food-menu-item">Rock Salmon <span class="price">£18.95</span></div>
+      <div class="food-menu-item">Plaice <span class="price">£18.95</span></div>
+      <div class="food-menu-item">Skate Wing <span class="price">£18.95</span></div>
+      <div class="food-menu-section">🥗 Steamed (Olive Oil & Oregano)</div>
+      <div class="food-menu-item">Haddock / Cod <span class="price">£17.95</span></div>
+      <div class="food-menu-item">Salmon Fillet <span class="price">£21.50</span></div>
+      <div class="food-menu-section">🍟 Sides</div>
+      <div class="food-menu-item">Chips <span class="price">£4.95</span></div>
+      <div class="food-menu-item">Mushy Peas / Garden Peas <span class="price">£3.95</span></div>
+      <div class="food-menu-item">Curry Sauce / Gravy <span class="price">£1.50</span></div>
+      <div class="food-menu-section">🍮 Desserts</div>
+      <div class="food-menu-item">Sticky Toffee Pudding <span class="price">£6.95</span></div>
+      <div class="food-menu-item">Apple / Rhubarb Crumble <span class="price">£6.95</span></div>
+    </div>
+  </div>
+
+  <div class="food-guide">
+    <span class="food-icon">🐟</span>
+    <h3>Fish Central <span class="food-tag">BARBICAN</span></h3>
+    <div class="food-type">Classic Chippy · Sit-down & Takeaway</div>
+    <div class="food-rating">⭐ 4.4★ (Yelp, 57 reviews)</div>
+    <div class="food-price">💰 Cod/Haddock/Plaice: £12.95</div>
+    <div class="food-desc">Opened 1968. Greek-Cypriot run, fish fried fresh to order. Eat outside on the Barbican concrete — one of London's great simple pleasures!</div>
+    <div class="food-address">📍 149-155 Central St, Barbican, EC1V 8AP · ☎ 020 7253 4970</div>
+    <div class="food-tag">1968</div><div class="food-tag">£12.95</div><div class="food-tag">Fresh to Order</div>
+    <div style="margin-top:10px;padding-top:8px;border-top:1px solid rgba(0,0,0,0.06)">
+      <div class="food-menu-section">🐟 Classics</div>
+      <div class="food-menu-item">Cod / Haddock / Plaice <span class="price">£12.95</span></div>
+      <div class="food-menu-item">Skate Wing <span class="price">£15.95</span></div>
+      <div class="food-menu-section">🥟 Starters</div>
+      <div class="food-menu-item">Prawn Cocktail <span class="price">£7.50</span></div>
+      <div class="food-menu-item">Burrata <span class="price">£8.95</span></div>
+      <div class="food-menu-item">Chargrilled Squid <span class="price">£12.45</span></div>
+      <div class="food-menu-item">Sardines <span class="price">£6.95</span></div>
+      <div class="food-menu-section">🦞 Lobster & Oysters</div>
+      <div class="food-menu-item">Half Lobster Salad <span class="price">£19.95</span></div>
+      <div class="food-menu-item">Oysters each <span class="price">£3.25</span></div>
+    </div>
+  </div>
+
+  <div class="food-guide">
+    <span class="food-icon">🍟</span>
+    <h3>The Fryer's Delight <span class="food-tag">BEST VALUE</span></h3>
+    <div class="food-type">Caff-style Chippy · Sit-down</div>
+    <div class="food-rating">⭐ 4.7★ (Google)</div>
+    <div class="food-price">💰 Full works: ~£7-8</div>
+    <div class="food-desc">A proper London caff that happens to serve fish & chips. Formica tables, black & white tiles, cod in a bowler hat mascot. BONUS: their fried chicken (fried in beef dripping) is unexpectedly legendary!</div>
+    <div class="food-address">📍 19 Theobalds Rd, Holborn, WC1X 8SL · ☎ 020 7405 4114</div>
+    <div class="food-tag">~£8</div><div class="food-tag">Caff Vibe</div><div class="food-tag">Fried Chicken</div>
+  </div>
+
+  <div class="food-guide">
+    <span class="food-icon">🍤</span>
+    <h3>More Great Chippies</h3>
+    <div class="food-desc">
+      • <strong>The Kingfisher</strong> ⭐8.0 — Highest rated by Infatuation<br>
+      • <strong>Marlow Fish Bar</strong> ⭐7.9<br>
+      • <strong>The SeaShell Of Lisson Grove</strong> ⭐7.8<br>
+      • <strong>Toff's of Muswell Hill</strong> ⭐7.5<br>
+      • <strong>Rock & Sole Plaice</strong> ⭐7.3 — Covent Garden, since 1871 (£20+)
+    </div>
+  </div>
+
+  <div class="info-box">
+    <strong>🍺 Luigi's Tip</strong>
+    The Golden Hind is BYOB — grab a bottle of wine or a few beers from a shop on Marylebone High Street before you go. Best value: the lunch deal at £21.95/pp!
+  </div>
+</div>
+
+<!-- HEALTHY EATING SECTION -->
+<div class="day" id="healthyDay">
+  <h2 class="day-header">🥗 Healthy Eats</h2>
+  <p class="day-date">Light, fresh & kind to your wallet — and your waistline 💪</p>
+
+  <div class="food-guide food-winner">
+    <span class="food-icon">🧆</span><span class="trophy">🏆</span>
+    <h3>Persepolis <span class="food-tag">BEST VALUE</span></h3>
+    <div class="food-type">Vegetarian Persian Deli & Cafe · Peckham</div>
+    <div class="food-rating">⭐ 8.0/10 (Infatuation)</div>
+    <div class="food-price">💰 Meze plate: £6!! · Super cheap</div>
+    <div class="food-desc">A bright yellow corner shop. Walk through to the back and get a delicious meze plate of falafel, tapenade, salad, dips, warm pitta — £6 for a single portion. There's even a Wotsit stuck in the hummus as a tribute to corner shops. BYOB!</div>
+    <div class="food-address">📍 Peckham High St., SE15 5DT</div>
+    <div class="food-tag">£6 Meal</div><div class="food-tag">BYOB</div><div class="food-tag">Veggie</div><div class="food-tag">Fun Vibe</div>
+  </div>
+
+  <div class="food-guide">
+    <span class="food-icon">🥗</span>
+    <h3>Atis <span class="food-tag">SHOREDITCH</span></h3>
+    <div class="food-type">Build-your-own Salad Bar</div>
+    <div class="food-rating">⭐ 7.7/10 (Infatuation)</div>
+    <div class="food-price">💰 ~£10-12 for a filling salad</div>
+    <div class="food-desc">18 million possible salad combinations! Bases, ingredients, crunchy things, dressings, extras — the Azteca (romaine, spinach, black beans, feta, avocado, tortilla shards, coriander lime dressing) is the star. Add sesame miso tofu or blackened chicken. Grab & go or sit.</div>
+    <div class="food-address">📍 145 City Road, Shoreditch, EC1V 1AZ</div>
+    <div class="food-tag">Cheap Eats</div><div class="food-tag">Vegan</div><div class="food-tag">Lunch</div>
+  </div>
+
+  <div class="food-guide">
+    <span class="food-icon">🌱</span>
+    <h3>Mildreds <span class="food-tag">SOHO · ICONIC</span></h3>
+    <div class="food-type">Vegan/Vegetarian · Since 1988</div>
+    <div class="food-rating">⭐ 7.8/10 (Infatuation)</div>
+    <div class="food-price">💰 Mains £14.90-19.90</div>
+    <div class="food-desc">London's plant-based pioneer with 5 locations. Globally inspired dishes that change with the seasons. THE DEAL: Mon-Wed, order the "Taste of Mildreds" set menu and get a FREE carafe of house wine! 🍷</div>
+    <div class="food-address">📍 45 Lexington St, Soho, W1F 9AN · ☎ +44 20 7494 1634</div>
+    <div class="food-tag">Free Wine</div><div class="food-tag">Vegan</div><div class="food-tag">Dog Friendly</div>
+    <div style="margin-top:10px;padding-top:8px;border-top:1px solid rgba(0,0,0,0.06)">
+      <div class="food-menu-section">🥟 Snacks & Starters</div>
+      <div class="food-menu-item">Padrón Peppers <span class="price">£7.50</span></div>
+      <div class="food-menu-item">Harissa Patatas Bravas <span class="price">£7.50</span></div>
+      <div class="food-menu-item">Kimchi Gyoza Dumplings <span class="price">£8.50</span></div>
+      <div class="food-menu-item">Coconut Corn Ribs <span class="price">£9.90</span></div>
+      <div class="food-menu-section">🍔 Burgers (with lemon pepper fries)</div>
+      <div class="food-menu-item">Korean Fried Chick+n <span class="price">£17.50</span></div>
+      <div class="food-menu-item">Chick+n Caesar <span class="price">£17.50</span></div>
+      <div class="food-menu-item">Smoky Mushroom Prime Patty <span class="price">£17.50</span></div>
+      <div class="food-menu-section">🍛 Mains</div>
+      <div class="food-menu-item">Shiitake Peanut Laksa <span class="price">£16.90</span></div>
+      <div class="food-menu-item">Kimchi Bokkeumbap <span class="price">£16.90</span></div>
+      <div class="food-menu-item">Kiri Hodi Pilau (Sri Lankan Curry) <span class="price">£19.90</span></div>
+      <div class="food-menu-item">Artichoke Caesar Salad <span class="price">£14.90</span></div>
+      <div class="food-menu-section">🍮 Desserts</div>
+      <div class="food-menu-item">Pistachio Cheesecake <span class="price">£10.90</span></div>
+      <div class="food-menu-item">Sticky Toffee Pudding <span class="price">£10.90</span></div>
+    </div>
+  </div>
+
+  <div class="food-guide">
+    <span class="food-icon">🥬</span>
+    <h3>Esters <span class="food-tag">TOP RATED ⭐8.6</span></h3>
+    <div class="food-type">Inventive Breakfast/Lunch · Stoke Newington</div>
+    <div class="food-rating">⭐ 8.6/10 (Infatuation) — Highest in the guide!</div>
+    <div class="food-desc">"Ooh I'm really craving some eggs with dandelion greens, almond cream, piquillo peppers, and dukkah" — thought no one, until Esters made it. It tastes really, really good. Be ready to queue!</div>
+    <div class="food-address">📍 55 Kynaston Rd, Stoke Newington, N16 0EB</div>
+    <div class="food-tag">Breakfast</div><div class="food-tag">Brunch</div><div class="food-tag">Worth the Queue</div>
+  </div>
+
+  <div class="food-guide">
+    <span class="food-icon">🥙</span>
+    <h3>Morito Hackney Road <span class="food-tag">SPANISH TAPAS</span></h3>
+    <div class="food-type">Spanish/North African Small Plates</div>
+    <div class="food-rating">⭐ 8.0/10 (Infatuation)</div>
+    <div class="food-price">💰 Tapas £5-17 · Grill £8-24</div>
+    <div class="food-desc">Small plates that work for everyone — vegetarian, pescetarian, flexitarian, all happy. Spring 2026 menu: olives £5, padron peppers £7, lamb chops £18, octopus £17, churros £9.</div>
+    <div class="food-address">📍 195 Hackney Road, E2 8JL · ☎ 020 7613 0754</div>
+    <div class="food-tag">Sharing</div><div class="food-tag">Date Night</div><div class="food-tag">Veg Friendly</div>
+  </div>
+
+  <div class="food-guide">
+    <span class="food-icon">🧑‍🍳</span>
+    <h3>Ottolenghi <span class="food-tag">THE OG</span></h3>
+    <div class="food-type">Deli & Cafe · Islington</div>
+    <div class="food-rating">⭐ 8.0/10 (Infatuation)</div>
+    <div class="food-price">💰 ££ · Mid-range</div>
+    <div class="food-desc">Yotam Ottolenghi — the OG of kind-of-healthy food in London. Seasonal salads, savoury plates, incredible cakes and bakes. Spring menu: coronation chicken with vadouvan chilli oil, salmon two ways, lemon pickle rice. Multiple locations.</div>
+    <div class="food-address">📍 287 Upper Street, Islington, N1 2TZ (also Spitalfields, Hampstead)</div>
+    <div class="food-tag">Iconic</div><div class="food-tag">Salads</div><div class="food-tag">Bakery</div>
+  </div>
+
+  <div class="food-guide">
+    <span class="food-icon">🥑</span>
+    <h3>More Healthy Spots</h3>
+    <div class="food-desc">
+      • <strong>Rovi</strong> ⭐8.0 — Fitzrovia, Ottolenghi's gone-platinum. Middle Eastern, great cocktails<br>
+      • <strong>Farm Girl Cafe</strong> ⭐7.7 — Notting Hill, Australian-style, healthy brunch & coffee<br>
+      • <strong>Malibu Kitchen</strong> ⭐7.7 — The Ned Hotel, poke & salads, feel like a Kardashian<br>
+      • <strong>Mildreds</strong> also has locations in Camden, King's Cross, Dalston, Victoria!
+    </div>
+  </div>
+
+  <div class="info-box">
+    <strong>💪 Luigi's Tip</strong>
+    Best date combo: grab meze at <strong>Persepolis</strong> (£6 meal + BYOB) then walk along the Thames. Or <strong>Mildreds</strong> Mon-Wed for the free wine deal! 🍷
+  </div>
+</div>
 
 <!-- HIDDEN GEMS SECTION -->
 <div class="day" id="hiddenGemsDay">
@@ -465,6 +679,20 @@ gemsBtn.textContent = '💎 Hidden';
 gemsBtn.onclick = () => switchDay(-1);
 dayNav.appendChild(gemsBtn);
 
+// Fish & chips tab
+const fishBtn = document.createElement('button');
+fishBtn.className = 'day-btn';
+fishBtn.textContent = '🐟 Fish & Chips';
+fishBtn.onclick = () => switchDay(-2);
+dayNav.appendChild(fishBtn);
+
+// Healthy eats tab
+const healthyBtn = document.createElement('button');
+healthyBtn.className = 'day-btn';
+healthyBtn.textContent = '🥗 Healthy';
+healthyBtn.onclick = () => switchDay(-3);
+dayNav.appendChild(healthyBtn);
+
 // Day content
 DAYS.forEach((day, di) => {
   const div = document.createElement('div');
@@ -521,8 +749,14 @@ function switchDay(index) {
   days.forEach(d => d.classList.remove('active'));
 
   if (index === -1) {
-    buttons[buttons.length - 1].classList.add('active');
+    buttons[5].classList.add('active');
     document.getElementById('hiddenGemsDay').classList.add('active');
+  } else if (index === -2) {
+    buttons[6].classList.add('active');
+    document.getElementById('fishChipsDay').classList.add('active');
+  } else if (index === -3) {
+    buttons[7].classList.add('active');
+    document.getElementById('healthyDay').classList.add('active');
   } else {
     buttons[index].classList.add('active');
     days[index].classList.add('active');
